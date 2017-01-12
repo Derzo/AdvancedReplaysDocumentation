@@ -1,4 +1,4 @@
-Advanced Replays Documentation
+Advanced Replay Creator Guide
 ==============================
 
-Hello and welcome 
+This guide for my [Advanced Replay Creator](https://www.unrealengine.com/marketplace) teaches you everything to get started with creating a wide range of replays for your game. You can also find out what every function or exposed variable does!
