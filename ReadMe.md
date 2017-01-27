@@ -39,12 +39,14 @@ It spawns ReplayActors for every inputted TrackedActor with correct child bluepr
 To start recording your replay, call `Record`.
 (picture of the function)
 
-> **Time**: At what point in replay-time you start recording (Leave the
-> first time recording at 0)
-> 
-> **KillReplayActors**: Automatically kills all of the ReplayActors
-> assigned to this ReplayComponent
-> 
-> **WakeTrackedActors**: Automatically wakes all of the TrackedActors
-> assigned to this ReplayComponent
+**Time**: At what point in replay-time you start recording (Leave the first time recording at 0)
 
+**KillReplayActors**: Automatically kills all of the ReplayActors assigned to this ReplayComponent
+
+**WakeTrackedActors**: Automatically wakes all of the TrackedActors assigned to this ReplayComponent
+
+ Input | Purpose
+------------ | -------------
+Time | At what point in replay-time you start recording (Leave the first time recording at 0)
+KillReplayActors | Automatically kills all of the ReplayActors assigned to this ReplayComponent
+WakeTrackedActors | Automatically wakes all of the TrackedActors assigned to this ReplayComponent
