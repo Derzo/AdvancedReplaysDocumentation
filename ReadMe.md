@@ -27,7 +27,7 @@ Before you can start recording, you have to initialize the ReplayActors. The fun
 
 (picture of the function)
 
-It spawns ReplayActors for every inputted TrackedActor with correct child blueprints and settings.
+It spawns ReplayActors using the inputs:
 
  Input | Description
 ------------ | -------------
