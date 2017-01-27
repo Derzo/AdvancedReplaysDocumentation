@@ -25,26 +25,26 @@ Before you start recording, you have to call `AddReplayActors`.
 (picture of the function)
 It spawns ReplayActors for every inputted TrackedActor with correct child blueprints and settings.
 
-> `ReplayActors`: Define the new ReplayActors' properties
+> **ReplayActors**: Define the new ReplayActors' properties
 > 
-> `ReplayActorClass`: What ReplayActor child blueprint class are you
+> **ReplayActorClass**: What ReplayActor child blueprint class are you
 > using
 > 
-> `TrackedActors`: References for every replayed tracked actor that uses
+> **TrackedActors**: References for every replayed tracked actor that uses
 > the class above
 > 
-> `AutoRecordTransform`: Automatically record and play the actor
+> **AutoRecordTransform**: Automatically record and play the actor
 > transforms for these ReplayActors
 
 To start recording your replay, call `Record`.
 (picture of the function)
 
-> `Time`: At what point in replay-time you start recording (Leave the
+> **Time**: At what point in replay-time you start recording (Leave the
 > first time recording at 0)
 > 
-> `KillReplayActors`: Automatically kills all of the ReplayActors
+> **KillReplayActors**: Automatically kills all of the ReplayActors
 > assigned to this ReplayComponent
 > 
-> `WakeTrackedActors`: Automatically wakes all of the TrackedActors
+> **WakeTrackedActors**: Automatically wakes all of the TrackedActors
 > assigned to this ReplayComponent
 
