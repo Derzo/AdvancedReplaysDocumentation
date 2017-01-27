@@ -67,4 +67,16 @@ Setting up the ReplayActors
 ---------------------------
 First you need to think what actors you want to replay. The whole scene? Not a problem. Split them to different classes, such as a class for moving static mesh platforms and a class for the character.
 
-You only need to do it for actors that will interact with something. For example, it would be a waste to create a ReplayActor class for a sleeping hamster animation actor that doesn't even have AI and will never wake up. Or even if it does have AI, it's still an useless hamster that no-one will really their eye on. Just let it live through the whole replay process :smile: test 😄
+You only need to do it for actors that will interact with something. For example, it would be a waste to create a ReplayActor class for a sleeping hamster animation actor that doesn't have AI and will never wake up. Or even if it does have AI, it's still a hamster that no-one will really their eye on. Just let the poor hamster live through the whole replay process.
+
+To create a ReplayActor blueprint, right click, Create New Blueprint and select the class ReplayActor.
+
+(gif)
+
+Open it up and you'll find nothingness. To add looks, add components. Most usual case would be to bring the static- and skeletalmeshcomponents from the TrackedActors into the ReplayActor. If you know their meshes & materials will be constant, you can set them up there, or if they can change between instances, use the function `CopyMeshAndMaterials` on BeginPlay.
+
+(Picture of an example)
+
+If you only need to replay the actor transform, you can check the `AutoRecordTransform` when adding the ReplayActors for this ReplayActor type.
+
+For other data such as animation or camera movement, there are events and functions inside the ReplayActor blueprints to script your ReplayActor logic.
