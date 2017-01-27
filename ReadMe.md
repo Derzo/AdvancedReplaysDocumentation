@@ -23,7 +23,7 @@ Add a ReplayComponent to an easily accessable blueprint class such as PlayerStat
 
 (gif)
 
-Before you start recording, you have to initialize the ReplayActors. The function for that is `AddReplayActors`.
+Before you can start recording, you have to initialize the ReplayActors. The function for that is `AddReplayActors`.
 
 (picture of the function)
 
@@ -56,3 +56,15 @@ When your recording is ready and you want to play your replay, call `Play`.
 `Reversed` | Will the replay be played backwards
 `KillTrackedActors` | Automatically kills all of the TrackedActors assigned to this ReplayComponent
 `WakeReplayActors` | Automatically wakes all of the ReplayActors assigned to this ReplayComponent
+
+If you want to stop recording **or** playing, call `Stop`.
+
+(Picture of the function)
+
+That should do it for the basics of using a ReplayComponent.
+
+Setting up the ReplayActors
+---------------------------
+First you need to think what actors you want to replay. The whole scene? Not a problem. Split them to different classes, such as a class for moving static mesh platforms and a class for the character.
+
+You only need to do it for actors that will interact with something. For example, it would be a waste to create a ReplayActor class for a sleeping hamster animation actor that doesn't even have AI and will never wake up. Or even if it does have AI, it's still an useless hamster that no-one will really their eye on. Just let it live through the whole replay process :smile: test 😄
