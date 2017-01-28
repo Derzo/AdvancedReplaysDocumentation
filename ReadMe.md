@@ -15,11 +15,11 @@ For example, a character transform would be added multiple times a second into a
 
 In this case the character would be the TrackedActor and the clone the ReplayActor. Also, from now on I'll call the hidden/shown as **killed**/**Waken** because it doesn't just hide the actors, it also removes collision, physics simulations and tick. More on that later.
 
-You control a replay with a **ReplayComponent** and create blueprint instances of the **ReplayActor** base class with additional script using the built-in events and functions.
+You control a replay with a **ReplayComponent** and create blueprint instances of the **ReplayActor** base class with additional script using the built-in events and functions. 
 
-Setting up a ReplayComponent
+Quickstart, ReplayComponent
 ----------
-Add a ReplayComponent to an easily accessable blueprint class such as PlayerState or GameMode. This way you can access it and control the replay anywhere.
+Add a ReplayComponent to an easily accessable blueprint class such as PlayerState or GameMode. This way you can access it and control the replay anywhere. You can have multiple different replays using different ReplayComponents, though usually 1 is enough.
 
 (gif)
 
@@ -63,7 +63,7 @@ If you want to stop recording **or** playing, call `Stop`.
 
 That should do it for the basics of using a ReplayComponent.
 
-Setting up the ReplayActors
+Quickstart, ReplayActors
 ---------------------------
 First you need to think what actors you want to replay. The whole scene? Not a problem. Split them to different classes, such as a class for moving static mesh platforms and a class for the character.
 
@@ -80,3 +80,11 @@ Open it up and you'll find nothingness. To add looks, add components. Most usual
 If you only need to replay the actor transform, you can check the `AutoRecordTransform` when adding the ReplayActors for this ReplayActor type.
 
 For other data such as animation or camera movement, there are events and functions inside the ReplayActor blueprints to script your ReplayActor logic.
+
+To record animation, there are 2 options. Either you replay the individual bone transforms, or you replay the animation blueprint values. The bone transform replaying is faster to do and more accurate for physics simulated bodies, while the animation blueprint method is way more efficient when it comes to performance and save sizes (if you are saving).
+
+To add custom replayed values and play them back,  create array(s) for the type of values you want to replay. Good tip is to use structures if you have many different types.
+
+To record values into the arrays, add event `RecordFrame`. This is called every time a new replay-frame is recorded. From here, you can `AddItem` or `SetArrayElement` to the arrays. The event passes you the new frame index and the TrackedActor reference where you can get the data from.
+
+(pictures)
