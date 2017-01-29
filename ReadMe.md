@@ -67,24 +67,38 @@ Quickstart, ReplayActors
 ---------------------------
 First you need to think what actors you want to replay. The whole scene? Not a problem. Split them to different classes, such as a class for moving static mesh platforms and a class for the character.
 
-You only need to do it for actors that will interact with something. For example, it would be a waste to create a ReplayActor class for a sleeping hamster animation actor that doesn't have AI and will never wake up. Or even if it does have AI, it's still a hamster that no-one will really their eye on. Just let the poor hamster live through the whole replay process.
+You only need to do it for actors that will interact with something and be important. For example, you could let a background AI hamster live through the whole replay process, no-one would really notice if it's running on a hamster wheel when playing the game but sleeping in the replay.
 
 To create a ReplayActor blueprint, right click, Create New Blueprint and select the class ReplayActor.
 
 (gif)
 
-Open it up and you'll find nothingness. To add looks, add components. Most usual case would be to bring the static- and skeletalmeshcomponents from the TrackedActors into the ReplayActor. If you know their meshes & materials will be constant, you can set them up there, or if they can change between instances, use the function `CopyMeshAndMaterials` on BeginPlay.
+Open it up and you'll find nothingness. To add looks, add components. Most usual case would be to bring the static- and SkeletalMeshComponents from the TrackedActors into the ReplayActor. If you know their meshes & materials will be constant, you can set them up there, or if they can change between instances, use the function `CopyMeshAndMaterials` on BeginPlay.
 
-(Picture of an example)
+(gif)
 
 If you only need to replay the actor transform, you can check the `AutoRecordTransform` when adding the ReplayActors for this ReplayActor type.
 
-For other data such as animation or camera movement, there are events and functions inside the ReplayActor blueprints to script your ReplayActor logic.
+(picture)
+
+For custom data such as animation or camera movement, there are events and functions inside the ReplayActor blueprints to script your ReplayActor logic.
 
 To record animation, there are 2 options. Either you replay the individual bone transforms, or you replay the animation blueprint values. The bone transform replaying is faster to do and more accurate for physics simulated bodies, while the animation blueprint method is way more efficient when it comes to performance and save sizes (if you are saving).
 
-To add custom replayed values and play them back,  create array(s) for the type of values you want to replay. Good tip is to use structures if you have many different types.
+Create array(s) for the type of values you want to replay. Good tip is to use structures if you have many different types.
 
-To record values into the arrays, add event `RecordFrame`. This is called every time a new replay-frame is recorded. From here, you can `AddItem` or `SetArrayElement` to the arrays. The event passes you the new frame index and the TrackedActor reference where you can get the data from.
+(gif)
 
-(pictures)
+Add event `RecordFrame`. This is called every time a new replay-frame is recorded (See the `RecFPS` setting in the ReplayComponent properties). From here, you can `AddItem` or `SetArrayElement` to the arrays. The event passes you the new frame index and the TrackedActor reference where you can get the data from.
+
+(gif)
+
+To play your replay, you can use the event `PlayFrame` or `Tick` along with the function `BlendFrames`.
+
+If you need a smooth interpolated playback for something, use `Tick` and `BlendFrames`. Just find a linear interpolation node for the variable type and connect it all. Tick is only enabled when the replay is playing. I think.
+
+(picture)
+
+If not, use `PlayFrame`. It's called every time a new replay-frame is played (See the `RecFPS` setting in the ReplayComponent properties)
+
+(picture)
