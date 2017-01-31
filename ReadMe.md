@@ -23,10 +23,11 @@ Add a ReplayComponent to an easily accessable blueprint class such as PlayerStat
 
 ![](http://i.imgur.com/Rtco5SK.gif)
 
+Before you can start recording, you have to initialize the ReplayActors. The function for that is `AddReplayActors` (downer picture). You need to pass in all of the TrackedActor references, so you might need to store them into arrays first (upper picture). The `ReplayActorClass` inputs will be defined later.
 
-Before you can start recording, you have to initialize the ReplayActors. The function for that is `AddReplayActors`.
+![](http://i.imgur.com/8FuDBOS.png)
 
-(picture of the function)
+![](http://i.imgur.com/jtjJmqr.png)
 
 It spawns ReplayActors using the inputs:
 
@@ -39,7 +40,7 @@ It spawns ReplayActors using the inputs:
 
 To start recording your replay, call `Record`.
 
-(picture of the function)
+![](http://i.imgur.com/pjbJn0Q.png)
 
  Input | Description
 ------------ | -------------
@@ -47,9 +48,9 @@ To start recording your replay, call `Record`.
 `KillReplayActors` | Automatically kills all of the ReplayActors assigned to this ReplayComponent
 `WakeTrackedActors` | Automatically wakes all of the TrackedActors assigned to this ReplayComponent
 
-When your recording is ready and you want to play your replay, call `Play`.
+When your recording is ready and you want to play it, call `Play`.
 
-(picture of the function)
+![](http://i.imgur.com/BBcLC6d.png)
 
  Input | Description
 ------------ | -------------
@@ -58,11 +59,7 @@ When your recording is ready and you want to play your replay, call `Play`.
 `KillTrackedActors` | Automatically kills all of the TrackedActors assigned to this ReplayComponent
 `WakeReplayActors` | Automatically wakes all of the ReplayActors assigned to this ReplayComponent
 
-If you want to stop recording **or** playing, call `Stop`.
-
-(Picture of the function)
-
-That should do it for the basics of using a ReplayComponent.
+That's it for the basics of using a ReplayComponent.
 
 Quickstart, ReplayActors
 ---------------------------
@@ -72,7 +69,7 @@ You only need to do it for actors that will interact with something and be impor
 
 To create a ReplayActor blueprint, right click, Create New Blueprint and select the class ReplayActor.
 
-(gif)
+![](http://i.imgur.com/2lRXZE4.gif)
 
 Open it up and you'll find nothingness. To add looks, add components. Most usual case would be to bring the static- and SkeletalMeshComponents from the TrackedActors into the ReplayActor. If you know their meshes & materials will be constant, you can set them up there, or if they can change between instances, use the function `CopyMeshAndMaterials` on BeginPlay.
 
