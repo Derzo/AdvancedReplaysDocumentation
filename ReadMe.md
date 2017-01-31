@@ -21,7 +21,7 @@ Quickstart, ReplayComponent
 ----------
 Add a ReplayComponent to an easily accessable blueprint class such as PlayerState or GameMode. This way you can access it and control the replay anywhere. You can have multiple different replays using different ReplayComponents, though usually 1 is enough.
 
-![](http://i.imgur.com/Rtco5SK.gifv)
+![](http://i.imgur.com/Rtco5SK.gif)
 
 
 Before you can start recording, you have to initialize the ReplayActors. The function for that is `AddReplayActors`.
